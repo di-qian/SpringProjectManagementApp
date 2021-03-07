@@ -21,12 +21,26 @@ public class Project {
 	
 	private String description;
 	
-	@OneToMany(mappedBy="theProject")
+	@OneToMany(mappedBy="project")
 	private List<Employee> employees;
 	
 	public Project() {
 		
 	}
+	
+	
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+
+
 
 	public Project(String name, String stage, String description) {
 		super();
