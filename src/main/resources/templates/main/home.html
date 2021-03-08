@@ -6,63 +6,66 @@
 
 <body>
 
-<div class="container">
-<h3>Main Dashboard</h3>
-<hr>
-
-<h4>Current Projects</h4>
-	<div class="row">
-	<div class="col-md-6">
-	
-	<table class="table table-bordered table-striped">
-		<thead class="thead-dark">
-			<tr>
-				<th> Project Name </th>
-				<th> Project Stage </th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="aProject : ${projectsList}">
-				<td th:text="${aProject.name}"></td>
-				<td th:text="${aProject.stage}"></td>
-			</tr>
-		</tbody>
-	</table>
-	</div>
-	
-	
-		<div class="col-md-4">
-		<canvas id="myPieChart" height="50" width="50"></canvas>
-	</div>
-	</div>
-	</div>
-	
 	<div class="container">
-	
-	<h4>Current Employees</h4>
-	<div class="row">
-	<div class="col-md-6">
-	
-	<table class="table table-bordered table-striped">
-		<thead class="thead-dark">
-			<tr>
-				<th> Employee First Name </th>
-				<th> Employee Last Name </th>
-				<th> Project Email </th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="aEmployee : ${employeesList}">
-				<td th:text="${aEmployee.firstName}"></td>
-				<td th:text="${aEmployee.lastName}"></td>
-				<td th:text="${aEmployee.email}"></td>
-			</tr>
-		</tbody>
-	</table>
-	</div>
+		<h3>Main Dashboard</h3>
+		<hr>
+
+		<h4>Current Projects</h4>
+		<div class="row">
+			<div class="col-md-6">
+
+				<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>Project Name</th>
+							<th>Project Stage</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="aProject : ${projectsList}">
+							<td th:text="${aProject.name}"></td>
+							<td th:text="${aProject.stage}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<div class="col-md-4">
+				<canvas id="myPieChart" height="50" width="50"></canvas>
+				<script>
+					var chartData = "[[${projectStatusCnt}]]"
+				</script>
+			</div>
+		</div>
 	</div>
 
-	<script type="text/javascript" th:src="@{js/myChart.js}"></script>
+	<div class="container">
+
+		<h4>Current Employees</h4>
+		<div class="row">
+			<div class="col-md-6">
+
+				<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>Employee First Name</th>
+							<th>Employee Last Name</th>
+							<th>Project Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="aEmployeeProjectCnt : ${employeesListProjectsCnt}">
+							<td th:text="${aEmployeeProjectCnt.firstName}"></td>
+							<td th:text="${aEmployeeProjectCnt.lastName}"></td>
+							<td th:text="${aEmployeeProjectCnt.projectCount}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<script type="text/javascript" th:src="@{js/myChart.js}"></script>
 	</div>
 </body>
 </html>
