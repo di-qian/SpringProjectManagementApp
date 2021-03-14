@@ -22,7 +22,8 @@ import com.jrp.pma.entities.Project;
 @Controller
 public class HomeController {
 	
-	@Value("${version}")
+//	@Value("${version}")
+	@Value(value = "${version:default value}") 
 	private String ver;
 
 	@Autowired
