@@ -35,7 +35,7 @@ public class ProjectController {
 	public String displayProjectForm(Model model) {
 		
 		Project aProject = new Project();
-		List<Employee> employees = empService.getAll();
+		Iterable<Employee> employees = empService.getAll();
 		model.addAttribute("project", aProject);
 		model.addAttribute("allEmployees", employees);
 		return "projects/new-project";

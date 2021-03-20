@@ -21,7 +21,7 @@ public class EmployeeController {
 	
 	@GetMapping
 	public String displayEmployees(Model model) {
-		List<Employee> employees = empRepo.findAll();
+		Iterable<Employee> employees = empRepo.findAll();
 		model.addAttribute("employees", employees);
 		return "employees/list-employees";
 	}
